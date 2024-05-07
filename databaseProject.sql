@@ -2,11 +2,6 @@ drop table reviews;
 drop table movies;
 drop table users;
 drop table admins;
-CREATE TABLE admins (
-    admin_id INT PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
 CREATE TABLE users (
     user_id INT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -31,11 +26,6 @@ CREATE TABLE reviews (
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (movie_id) REFERENCES movies(movie_id)
 );
-
-INSERT INTO admins VALUES (1, 'admin1', 'admin_password1');
-INSERT INTO admins VALUES (2, 'admin2', 'admin_password2');
-INSERT INTO admins VALUES (3, 'admin3', 'admin_password3');
-INSERT INTO admins VALUES (4, 'admin4', 'admin_password4');
 INSERT INTO movies VALUES (1, 'The Shawshank Redemption', TO_DATE('1994-09-23', 'YYYY-MM-DD'), 'Drama', 'Frank Darabont', 142, 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', 9.3);
 INSERT INTO movies VALUES (2, 'The Godfather', TO_DATE('1972-03-24', 'YYYY-MM-DD'), 'Crime', 'Francis Ford Coppola', 175, 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', 9.2);
 INSERT INTO movies VALUES (3, 'The Dark Knight', TO_DATE('2008-07-18', 'YYYY-MM-DD'), 'Action', 'Christopher Nolan', 152, 'When the menace known as The Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.', 9.0);
